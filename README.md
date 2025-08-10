@@ -3,6 +3,9 @@
 EchoDraft is a **feedback-aware, style-learning writing co-pilot**. It learns from your edits,
 mimics your tone, and gets better over time. Built with a modular graph so we can add
 LangSmith evals, human-in-the-loop review, and memory step-by-step.
+It is an ambient agent that will soon work with your email drafts, blog drafts, and bullet points
+on Notion to give you a first draft of your thoughts without prompting, and then will allow you 
+to iterate on it.
 
 ## Quickstart
 
