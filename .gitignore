@@ -1,0 +1,16 @@
+# Environments & caches
+.env
+.env.*
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+
+# Build artefacts
+dist/
+build/
+*.egg-info/
+
+# Data
+data/
+.cache/
