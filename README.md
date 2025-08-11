@@ -14,6 +14,7 @@ to iterate on it.
 pip install -e .
 cp .env.example .env   # keep real keys ONLY locally
 echodraft draft --style professional --topic "Benefits of AI in education"
+echodraft triage --surface notion --title "Proposal" --content "- Goals\n- Scope\n- TODO"
 ```
 
 > The initial CLI works without any API keys. We'll wire models + LangGraph next.
