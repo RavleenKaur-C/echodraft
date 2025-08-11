@@ -20,7 +20,8 @@ echodraft draft --style professional --topic "Benefits of AI in education"
 
 ## Roadmap (phased)
 - [x] MVP CLI + modular layout
-- [ ] Agent graph (LangGraph) — draft → explain → output
+- [x] Agent graph (LangGraph) — triage → draft → explain → output
+- [x] Triage node for selective drafting
 - [ ] LangSmith tracing & simple eval set
 - [ ] Human-in-the-loop review node
 - [ ] Memory: line-level feedback (git-suggestion style)

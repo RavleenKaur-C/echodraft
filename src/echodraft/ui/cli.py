@@ -36,3 +36,32 @@ def revise(file: str = typer.Argument(..., help="Path to a text file to revise")
 def metrics():
     """Show improvement metrics (stub until LangSmith wired)."""
     typer.echo(summarize_metrics())
+
+@app.command()
+def triage(
+    surface: str = typer.Option("notion", help="email|notion|linkedin|blog"),
+    title: str = typer.Option("", help="Title/subject"),
+    content: str = typer.Option("", help="Raw content/body to classify"),
+    stale_days: int = typer.Option(30, help="Age threshold in days"),
+):
+    """Run triage only and print the label, reason, confidence."""
+    from ..graph.builder import build_graph
+    appg = build_graph()
+    out = appg.invoke({
+        "surface": surface,
+        "title": title,
+        "content": content,
+        "metadata": {},
+        "stale_days": stale_days,
+        # dummy draft fields to keep state happy
+        "topic": title or "Untitled",
+        "style": "professional",
+        "words": 200,
+        "explain": False,
+    })
+    label = (out.get("triage_label") or "").upper()
+    reason = out.get("triage_reason", "")
+    conf = out.get("triage_confidence", 0)
+    typer.echo(f"label={label}  confidence={conf:.2f}")
+    if reason:
+        typer.echo(f"reason: {reason}")
