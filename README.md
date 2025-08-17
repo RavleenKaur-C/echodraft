@@ -17,6 +17,7 @@ cp .env.example .env
 echodraft draft --style professional --topic "Benefits of AI in education"
 # Run triage
 echodraft triage --surface notion --title "Proposal" --content "- Goals\n- Scope\n- TODO"
+```
 
 ## Roadmap (phased)
 - [x] MVP CLI + modular layout
