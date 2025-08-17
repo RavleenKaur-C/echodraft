@@ -1,0 +1,35 @@
+{"surface":"email","title":"Monthly Marketing Newsletter","content":"Unsubscribe | special offers | limited-time sale","label":"IGNORE"}
+{"surface":"email","title":"Promoted: Cloud Credits","content":"Claim your free credits today — promo ends Friday","label":"IGNORE"}
+{"surface":"linkedin","title":"Random meme post","content":"lol look at this… (no context, no topic, no CTA)","label":"IGNORE"}
+{"surface":"notion","title":"Link dump","content":"https://example.com\nhttps://another.com\n(no context)","label":"IGNORE"}
+{"surface":"email","title":"Vendor blast","content":"Exclusive offer for enterprise customers. Unsubscribe here.","label":"IGNORE"}
+
+{"surface":"email","title":"FYI: Team member OOO","content":"Heads up: Priya is out Thu–Fri. No action required.","label":"NOTIFY"}
+{"surface":"email","title":"Outage Resolved","content":"The login outage is resolved. Just sharing for awareness.","label":"NOTIFY"}
+{"surface":"notion","title":"Sprint Update","content":"Sprint 12 closed. Burndown + retro notes in Notion.","label":"NOTIFY"}
+{"surface":"email","title":"Policy Update","content":"HR updated vacation policy. Please review when convenient.","label":"NOTIFY"}
+{"surface":"email","title":"System Maintenance Complete","content":"Database maintenance finished successfully. No response needed.","label":"NOTIFY"}
+
+{"surface":"email","title":"Confirm Tuesday 2pm?","content":"Can you confirm 2pm Tuesday for the API review? Yes/No.","label":"DRAFT_EMAIL"}
+{"surface":"email","title":"Follow up on proposal","content":"Could you send the revised pricing by EOD?","label":"DRAFT_EMAIL"}
+{"surface":"email","title":"Intro request","content":"Can you introduce me to the PM owning onboarding?","label":"DRAFT_EMAIL"}
+{"surface":"email","title":"Schedule sync","content":"Do Wednesday or Thursday 11–11:30am work for you?","label":"DRAFT_EMAIL"}
+{"surface":"email","title":"Action required: Docs","content":"Please confirm you’ve reviewed the attached doc by Friday.","label":"DRAFT_EMAIL"}
+
+{"surface":"notion","title":"Q1 product launch proposal","content":"- Goals\n- Scope\n- Timeline\n- TODO: expand into proposal","label":"DRAFT_NOTION"}
+{"surface":"notion","title":"Sales enablement brief","content":"- Audience\n- Problems we solve\n- Messaging pillars\n- TBD examples","label":"DRAFT_NOTION"}
+{"surface":"notion","title":"PRD: Onboarding checklist","content":"- Problem\n- Use cases\n- Requirements\n- Open questions","label":"DRAFT_NOTION"}
+{"surface":"notion","title":"Partner pitch outline","content":"- Hook\n- Value props\n- Proof points\n- CTA\n- TBD visuals","label":"DRAFT_NOTION"}
+{"surface":"notion","title":"Internal announcement draft","content":"- What changed\n- Why now\n- Impact\n- Next steps (empty)","label":"DRAFT_NOTION"}
+
+{"surface":"linkedin","title":"AI in education — draft post","content":"- Hook: personalize learning\n- Data: completion +12%\n- CTA: share your experience","label":"DRAFT_LINKEDIN"}
+{"surface":"linkedin","title":"Post: launch recap","content":"- Key metric hit\n- Customer quote\n- CTA: read the blog","label":"DRAFT_LINKEDIN"}
+{"surface":"blog","title":"Feature deep dive outline","content":"- Problem\n- Architecture sketch\n- Results\n- CTA to docs","label":"DRAFT_LINKEDIN"}
+{"surface":"linkedin","title":"Hiring note (draft)","content":"- Role: ML Engineer\n- Why now\n- CTA: apply / DM me","label":"DRAFT_LINKEDIN"}
+{"surface":"blog","title":"Customer story outline","content":"- Before\n- After\n- Metrics\n- CTA to case study","label":"DRAFT_LINKEDIN"}
+
+{"surface":"email","title":"HR Matter — Formal Notice","content":"This involves HR/legal. Do not respond without guidance.","label":"REVIEW"}
+{"surface":"email","title":"Sensitive: Compensation","content":"Discussing compensation adjustments. Needs manager input.","label":"REVIEW"}
+{"surface":"email","title":"Security incident details","content":"Contains confidential incident info. Confirm handling before reply.","label":"REVIEW"}
+{"surface":"email","title":"Legal request","content":"External legal counsel request. Route to legal before responding.","label":"REVIEW"}
+{"surface":"email","title":"Escalation: customer complaint","content":"Serious complaint with potential PR risk. Review before responding.","label":"REVIEW"}

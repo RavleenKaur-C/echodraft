@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "avg_clarity": 4.5,
+    "avg_style_fit": 4.33,
+    "avg_completeness": 4.17,
+    "avg_clarity2": 5.0,
+    "avg_style_fit2": 4.5,
+    "avg_completeness2": 5.0
+  },
+  "results": [
+    {
+      "topic": "Q1 product launch proposal",
+      "style": "professional",
+      "clarity": 4,
+      "style_fit": 5,
+      "completeness": 4,
+      "comments": "The draft is clear and professional, effectively outlining the product launch proposal. It includes a brief introduction and a launch strategy with a timeline, but could benefit from more explicit details on the channels for the marketing campaign.",
+      "improved": false
+    },
+    {
+      "topic": "How AI helps onboarding",
+      "style": "persuasive",
+      "clarity": 5,
+      "style_fit": 5,
+      "completeness": 5,
+      "comments": "The draft effectively hooks the reader with the importance of onboarding, presents two concrete benefits of AI in the process, and concludes with a strong call-to-action, fulfilling all expectations for a persuasive piece.",
+      "improved": false
+    },
+    {
+      "topic": "Customer story: Contoso",
+      "style": "story",
+      "clarity": 4,
+      "style_fit": 3,
+      "completeness": 4,
+      "comments": "The draft presents a clear narrative arc and provides a compelling transformation story for Contoso. However, it lacks a more pronounced storytelling style, which could enhance engagement. While it effectively communicates the before-and-after scenario and includes a lesson, the ",
+      "improved": true,
+      "clarity2": 5,
+      "style_fit2": 4,
+      "completeness2": 5,
+      "comments2": "The draft is clear and effectively communicates the transformation journey of Contoso, showcasing a narrative arc from struggle to success. It aligns well with the story style, though it could benefit from a more personal touch or character development to enhance engagement. Over"
+    },
+    {
+      "topic": "Release notes 1.2.7",
+      "style": "professional",
+      "clarity": 4,
+      "style_fit": 4,
+      "completeness": 3,
+      "comments": "The draft is mostly clear and maintains a professional tone, but it lacks a direct emphasis on 'what changed' and 'why it matters' in a concise manner. Additionally, it does not explicitly outline any required actions for users, which is a key expectation.",
+      "improved": true,
+      "clarity2": 5,
+      "style_fit2": 5,
+      "completeness2": 5,
+      "comments2": "The draft effectively communicates the changes, their significance, and the required actions in a clear and professional manner, fully meeting the expectations outlined."
+    },
+    {
+      "topic": "Hiring: ML Engineer",
+      "style": "persuasive",
+      "clarity": 5,
+      "style_fit": 5,
+      "completeness": 5,
+      "comments": "The draft effectively communicates the role, its impact, and the application process in a clear and persuasive manner, fully meeting the expectations outlined.",
+      "improved": false
+    },
+    {
+      "topic": "AI in education \u2014 draft post",
+      "style": "story",
+      "clarity": 5,
+      "style_fit": 4,
+      "completeness": 4,
+      "comments": "The draft is clear and effectively conveys the story of Ms. Thompson's experience with AI in the classroom. It aligns well with the story style, though it could benefit from a more engaging opening hook. The example scenario is well-developed, but the takeaway could be more expli",
+      "improved": false
+    }
+  ]
+}

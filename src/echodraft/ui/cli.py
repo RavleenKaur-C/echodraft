@@ -65,3 +65,21 @@ def triage(
     typer.echo(f"label={label}  confidence={conf:.2f}")
     if reason:
         typer.echo(f"reason: {reason}")
+
+@app.command("eval-triage")
+def eval_triage(dataset: str = typer.Option("datasets/triage.jsonl", help="Path to triage dataset JSONL")):
+    """Evaluate triage accuracy/metrics on a labeled dataset."""
+    from ..evaluation.run_eval import eval_triage_cli
+    typer.echo(eval_triage_cli(dataset))
+
+@app.command("eval-drafts")
+def eval_drafts(
+    dataset: str = typer.Option("datasets/drafts.jsonl", help="Path to drafts dataset JSONL"),
+    words: int = typer.Option(220, help="Target word count for generated drafts"),
+    refine: bool = typer.Option(True, help="Auto-refine drafts that score below threshold"),
+    min_score: int = typer.Option(4, help="Refine if any score < min_score"),
+):
+    """LLM-based evaluation of generated drafts (clarity, style-fit, completeness) with optional auto-refine."""
+    from ..evaluation.run_eval import eval_drafts_cli
+    typer.echo(eval_drafts_cli(dataset, words, refine, min_score))
+

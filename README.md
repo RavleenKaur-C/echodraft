@@ -12,18 +12,18 @@ to iterate on it.
 ```bash
 # From the repo root
 pip install -e .
-cp .env.example .env   # keep real keys ONLY locally
+cp .env.example .env 
+# Generate a draft
 echodraft draft --style professional --topic "Benefits of AI in education"
+# Run triage
 echodraft triage --surface notion --title "Proposal" --content "- Goals\n- Scope\n- TODO"
-```
-
-> The initial CLI works without any API keys. We'll wire models + LangGraph next.
 
 ## Roadmap (phased)
 - [x] MVP CLI + modular layout
 - [x] Agent graph (LangGraph) — triage → draft → explain → output
 - [x] Triage node for selective drafting
-- [ ] LangSmith tracing & simple eval set
+- [x] Evaluation Suite: triage metrics + draft eval with LLM-as-judge & auto-refine
+- [ ] Langsmith Tracing integration
 - [ ] Human-in-the-loop review node
 - [ ] Memory: line-level feedback (git-suggestion style)
 - [ ] Memory: style-transfer via embeddings/RAG

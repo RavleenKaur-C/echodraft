@@ -19,7 +19,7 @@ def _scaffold_paragraphs(topic: str, style_key: str, target_words: int) -> list[
         parts.append(fill(body, width=88))
     return parts
 
-def draft_text(topic: str, style: str="professional", target_words: int=220, explain: bool=False) -> str:
+def draft_text(topic: str, style: str="professional", target_words: int=220, explain: bool=False, expectations: str="") -> str:
     app = build_graph()
     out = app.invoke({
         # triage inputs (for CLI we simulate a “content blob” to classify)
@@ -32,6 +32,7 @@ def draft_text(topic: str, style: str="professional", target_words: int=220, exp
         "topic": topic,
         "style": style,
         "words": target_words,
+        "expectations": expectations,
         "explain": explain
     })
     # If triage didn’t choose drafting, return reason.

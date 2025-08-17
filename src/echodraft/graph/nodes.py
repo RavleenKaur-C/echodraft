@@ -24,8 +24,9 @@ def draft_node(state: DraftState) -> DraftState:
     prompt = PromptTemplate.from_template(DRAFT_PROMPT).format(
         topic=state["topic"],
         style=state.get("style","professional"),
+        words=state.get("words",220),
         taboos=", ".join(state.get("taboos", [])) or "None",
-        words=state.get("words", 220),
+        expectations=state.get("expectations","") or "None",   # NEW
     )
     resp = _llm.invoke(prompt)
     return {"draft": resp.content.strip()}
@@ -57,16 +58,33 @@ def triage_node(state: TriageState) -> TriageState:
         stale_days=state.get("stale_days", 30),
     )
     resp = _triage_llm.invoke(prompt).content.strip()
-    # be robust to stray text; find first {...}
     start = resp.find("{"); end = resp.rfind("}")
     parsed = {"label": "REVIEW", "reason": "parse_error", "confidence": 0.0}
-    if start != -1 and end != -1 and end>start:
+    if start != -1 and end != -1 and end > start:
         try:
             parsed = json.loads(resp[start:end+1])
         except Exception:
             pass
-    return {
-        "triage_label": parsed.get("label","REVIEW"),
-        "triage_reason": parsed.get("reason",""),
-        "triage_confidence": float(parsed.get("confidence",0)),
-    }
+
+    label = (parsed.get("label") or "REVIEW").upper()
+    reason = parsed.get("reason", "")
+    conf = float(parsed.get("confidence", 0))
+
+    # --- heuristic fallback to improve NOTIFY recall ---
+    text = f"{state.get('title','')} {state.get('content','')}".lower()
+    notify_cues = [
+        "fyi", "for your info", "no action required", "just sharing",
+        "reminder", "outage resolved", "maintenance complete",
+        "all hands", "policy update", "office will be closed", "oo o", "ooo", "out of office"
+    ]
+    if label == "IGNORE" and any(cue in text for cue in notify_cues):
+        label = "NOTIFY"
+        reason = "Heuristic: FYI/awareness cue detected; choose NOTIFY over IGNORE."
+        conf = max(conf, 0.7)
+
+    # guard unknown labels
+    allowed = {"IGNORE","NOTIFY","DRAFT_EMAIL","DRAFT_NOTION","DRAFT_LINKEDIN","REVIEW"}
+    if label not in allowed:
+        label, reason, conf = "REVIEW", "Unknown label from model", 0.0
+
+    return {"triage_label": label, "triage_reason": reason, "triage_confidence": conf}
