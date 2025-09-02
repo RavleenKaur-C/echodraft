@@ -1,26 +1,26 @@
-import re
-from textwrap import fill
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import PromptTemplate
 
-# Very simple 'feedback-aware' rewrite rules (will be replaced by agent logic later)
-RULES = {
-    "too formal": [
-        (re.compile(r"\bhowever\b", re.I), "but"),
-        (re.compile(r"\bthus\b", re.I), "so"),
-    ],
-    "add example": [
-        (re.compile(r"$", re.M), "\nFor example, consider a simple case that illustrates the point."),
-    ],
-    "shorten": [
-        (re.compile(r"\s+\S+\s*$", re.M), "."),  # naive trim
-    ],
-}
+REVISE_PROMPT = """You are a careful rewrite assistant.
+Revise the draft based on the FEEDBACK. Follow these rules:
+- Apply feedback faithfully (tone, brevity, clarity).
+- Preserve structure and Markdown formatting (headings, lists, signatures).
+- Do NOT leave incomplete sentences or placeholders.
+- Return ONLY the full revised draft (no preamble, no commentary).
 
-def revise_text(text: str, feedback: str) -> str:
-    fb = feedback.lower()
-    for key, rules in RULES.items():
-        if key in fb:
-            for pat, repl in rules:
-                text = pat.sub(repl, text)
-    # Basic tightening: collapse multiple blank lines
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return fill(text, width=88)
+FEEDBACK:
+"{feedback}"
+
+DRAFT:
+<<<
+{draft}
+>>>"""
+
+_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.4, max_tokens=700)
+
+def revise_text(draft: str, feedback: str) -> str:
+    prompt = PromptTemplate.from_template(REVISE_PROMPT).format(
+        feedback=feedback, draft=draft
+    )
+    resp = _llm.invoke(prompt)
+    return resp.content.strip()

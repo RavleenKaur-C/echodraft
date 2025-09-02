@@ -6,6 +6,8 @@ Style: {style}
 Target length: ~{words} words.
 Avoid taboo phrases if any are provided: {taboos}
 
+Personalization rules: {personalization}
+
 Must include (if provided):
 - Expectations checklist: {expectations}
 
